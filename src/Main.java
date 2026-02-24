@@ -96,5 +96,109 @@
 //8	|	                                    从左向右
 //9	= += -= *= /= %= &= |= ^= <<= >>= >>>=	从右向左
 
-}
-}
+
+//        public static void main(String[] args) {
+//            int score =  2;
+//            if(score >= 90)    //90分以上才是优秀
+//                System.out.println("优秀");
+//            else if (score >= 70)    //当上一级if判断失败时，会继续判断这一级
+//                System.out.println("良好");
+//            else if (score >= 60)
+//                System.out.println("及格");
+//            else    //当之前所有的if都判断失败时，才会进入到最后的else语句中
+//                System.out.println("不及格");
+//        }
+//
+//        public static void main(String[] args) {
+//            char c = 'A';
+//            switch (c) {  //这里目标就是变量c
+//                case 'A':    //分别指定ABC三个匹配值，并且执行不同的代码
+//                    System.out.println("去尖子班！准备冲刺985大学！");
+//                    break;   //执行完之后一定记得break，否则会继续向下执行下一个case中的代码
+//                case 'B':
+//                    System.out.println("去平行班！准备冲刺一本！");
+//                    break;
+//                case 'C':
+//                    System.out.println("去职高深造。");
+//                    break;
+//            }
+//
+//            switch (目标) {
+//                case: ...
+//                default:
+//                   // 其他情况下执行的代码
+//            }
+//
+//            int score = 9;
+////直接让grade接受switch的结果
+//            char grade = switch (score) {
+//                case 10, 9 -> 'A';   //case后面直接使用->来指定返回结果
+//                case 8 -> 'B';
+//                case 6, 7 -> 'C';  //当存在多个匹配条件时，使用逗号分隔
+//                default -> 'D';
+//            };  //别忘了这种写法相当于赋值，最后需要加分号
+//            System.out.println("学生等级为: " + grade);
+//
+//
+//            char grade = switch (score) {
+//                case 9 -> 'A';
+//                case 8 -> 'B';
+//                case 6, 7 -> {
+//                    System.out.println("我是额外操作");   //存在前置操作，无法直接指定结果
+//                    yield 'C';   //在最后使用yield关键字来指定结果
+//                }
+//                default -> 'D';
+//            };
+//
+//
+//            for (int i = 0; i < 3; i++) {
+//                System.out.println("伞兵一号卢本伟准备就绪！");
+//                System.out.println("当前i的值为："+i);
+//            }
+//
+//                    for (int i = 0; i < 3; i++) {
+//                        System.out.println("伞兵一号卢本伟准备就绪！");
+//                        System.out.println("当前i的值为："+i);
+//                    }
+//
+//            public static void main(String[] args) {
+//                for (;;)   //如果什么都不写，相当于没有结束条件，这将会导致无限循环
+//                    System.out.println("伞兵一号卢本伟准备就绪！");
+//            }
+//     //while循环
+//            public static void main(String[] args) {
+//                int i = 100;   //比如现在我们想看看i不断除以2得到的结果会是什么，但是循环次数我们并不明确
+//                while (i > 0) {   //现在唯一知道的是循环条件，只要大于0那么就可以继续除
+//                    System.out.println(i);
+//                    i /= 2;   //每次循环都除以2
+//                }
+//            }
+//
+//            //do-while语句
+//            public static void main(String[] args) {
+//                int i = 0;
+//                do {  //无论满不满足循环条件，先执行循环体里面的内容
+//                    System.out.println("Hello World!");
+//                    i++;
+//                } while (i < 10);   //再做判断，如果判断成功，开启下一轮循环，否则结束
+//            }
+//
+//
+//
+//     //类与对象
+//            public class Person {   //这里定义的人类具有三个属性，名字、年龄、性别
+//                String name;   //直接在类中定义变量，表示类具有的属性
+//                int age;
+//                String sex;
+//            }
+//
+//
+//            public static void main(String[] args) {
+//                new Person();   //我们可以使用new关键字来创建某个类的对象，注意new后面需要跟上 类名()
+//                //这里创建出来的，就是一个具体的人了
+//            }
+
+
+
+//}
+//}
