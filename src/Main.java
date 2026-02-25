@@ -486,5 +486,266 @@
 //                    }
 //
 //                    可以正常继承了，因为B指定了non-sealed主动放弃了密封特性
+
+//                        包装类介绍
+//                            能够表示数字的基本类型包装类，继承自Number类
+//                                    byte -> Byte
+//                                    boolean -> Boolean
+//                                    short -> Short
+//                                    char -> Character
+//                                    int -> Integer
+//                                    long -> Long
+//                                    float -> Float
+//                                    double -> Double
+//
+//                        private final int value;  //类中实际上就靠这个变量在存储包装的值
+//
+//                        public Integer(int value) {
+//                            this.value = value;
+//                        }
+//
+//                        public static void main(String[] args) {
+//                            Integer i = 10;
+//                            int a = i.intValue();   //通过此方法变成基本类型int值
+//                        }
+//
+//                        public static void main(String[] args) {
+//                            Integer a = new Integer(10);
+//                            Integer b = new Integer(10);
+//
+//                            System.out.println(a == b);    //虽然a和b的值相同，但是并不是同一个对象，所以说==判断为假
+//                        }
+//
+//                        public static void main(String[] args) {
+//                            Integer a = 128, b = 128;
+//                            System.out.println(a == b);
+//                        }
+//
+//                        包装类支持字符串直接转换：
+//                        public static void main(String[] args) {
+//                            Integer i = new Integer("666");   //直接将字符串的666，转换为数字666
+//                            System.out.println(i);
+//                        }
+//
+//                        特殊包装类
+//                                计算超大数字的BigInteger
+//                        public static void main(String[] args) {
+//                            BigInteger i = BigInteger.valueOf(Long.MAX_VALUE);    //表示Long的最大值，轻轻松松
+//                            System.out.println(i);
+//                        }
+//
+//                        数组
+//                        类型[] 变量名称 = new 类型[数组大小];
+//                        类型 变量名称[] = new 类型[数组大小];  //支持C语言样式，但不推荐！
+//
+//                        类型[] 变量名称 = new 类型[]{...};  //静态初始化（直接指定值和大小）
+//                        类型[] 变量名称 = {...};   //同上，但是只能在定义时赋值
+//
+//                        public static void main(String[] args) {
+//                            int[] array = new int[10];
+//                            array[0] = 888;   //就像使用变量一样，是可以放在赋值运算符左边的，我们可以直接给对应下标位置的元素赋值
+//                            System.out.println("数组的第一个元素为："+array[0]);
+//                        }
+//
+//                        多维数组
+//                        public static void main(String[] args) {
+//                            int[][] arr = new int[][]{{1, 2},
+//                                    {3, 4},
+//                                    {5, 6}};
+//                            for (int i = 0; i < 3; i++) {    //要遍历一个二维数组，那么我们得一列一列一行一行地来
+//                                for (int j = 0; j < 2; j++) {
+//                                    System.out.println(arr[i][j]);
+//                                }
+//                            }
+//                        }
+//                        可变长参数
+//                        public class Person {
+//                            String name;
+//                            int age;
+//                            String sex;
+//
+//                            public void test(String... strings){
+//
+//                            }
+//                        }
+//                        public static void main(String[] args) {
+//                            Person person = new Person();
+//                            person.test("1！", "5！", "哥们在这跟你说唱"); //这里我们可以自由传入任意数量的字符串
+//                        }
+//                        如果同时存在其他参数，那么可变长参数只能放在最后：
+//
+//                        字符串
+//                                String类
+//                        public static void main(String[] args) {
+//                            String str = new String("Hello World!");  //这种方式就是创建一个新的对象
+//                        }
+//                        public static void main(String[] args) {
+//                            String str1 = "Hello World";
+//                            String str2 = "Hello World";
+//                            System.out.println(str1 == str2);
+//                        }
+//                        StringBuilder类
+//                        public static void main(String[] args) {
+//                            String str1 = "你看";
+//                            String str2 = "这";
+//                            String str3 = "汉堡";
+//                            String str4 = "做滴";
+//                            String str5 = "行不行";
+//                            String result = str1 + str2 + str3 + str4 + str5;   //5个变量连续加
+//                            System.out.println(result);
+//                        }
+//                        文本块
+//                        String string = """
+//                                "dad"
+//                                """;
+//                        System.out.println(string);  //"dad"
+//
+//                        String string = "\"dad\"\n";
+//                        System.out.println(string);
+//
+//                        正则表达式
+//                        public static void main(String[] args) {
+//                            String str = "aaaa731341@163.com";
+//                            //假设邮箱格式为 数字/字母@数字/字母.com
+//                        }
+//
+//                        public static void main(String[] args) {
+//                            String str = "oooo";
+//                            //matches方法用于对给定正则表达式进行匹配，匹配成功返回true，否则返回false
+//                            System.out.println(str.matches("o+"));   //+表示对前面这个字符匹配一次或多次，这里字符串是oooo，正好可以匹配
+//                        }
+//
+//                        *	匹配前面的子表达式零次或多次。例如，zo* 能匹配 "z" 以及 "zoo"。***** 等价于 {0,}。
+//                                +	匹配前面的子表达式一次或多次。例如，zo+ 能匹配 "zo" 以及 "zoo"，但不能匹配 "z"。+ 等价于 {1,}。
+//                                ?	匹配前面的子表达式零次或一次。例如，do(es)? 可以匹配 "do" 、 "does"、 "doxy" 中的 "do" 。? 等价于 {0,1}。
+//                                {n}	n 是一个非负整数。匹配确定的 n 次。例如，o{2} 不能匹配 "Bob" 中的 o，但是能匹配 "food" 中的两个 o。
+//                                {n,}	n 是一个非负整数。至少匹配n 次。例如，o{2,} 不能匹配 "Bob" 中的 o，但能匹配 "foooood" 中的所有 o。o{1,} 等价于 o+。o{0,} 则等价于 o*。
+//                                {n,m}	m 和 n 均为非负整数，其中 n <= m。最少匹配 n 次且最多匹配 m 次。例如，o{1,3} 将匹配 "fooooood" 中的前三个 o。o{0,1} 等价于 o?。请注意在逗号和两个数之间不能有空格。
+//
+//                                [ABC]	匹配 [...] 中的所有字符，例如 [aeiou] 匹配字符串 "google runoob taobao" 中所有的 e o u a 字母。
+//                                [^ABC]	匹配除了 [...] 中字符的所有字符，例如 [^aeiou] 匹配字符串 "google runoob taobao" 中除了 e o u a 字母的所有字母。
+//                                [A-Z]	[A-Z] 表示一个区间，匹配所有大写字母，[a-z] 表示所有小写字母。
+//                                .	匹配除换行符（\n、\r）之外的任何单个字符，相等于 [^\n\r]
+//                                [\s\S]	匹配所有。\s 是匹配所有空白符，包括换行，\S 非空白符，不包括换行。
+//                                \w	匹配字母、数字、下划线。等价于 [A-Za-z0-9_]
+//
+//
+//                        public static void test(Object obj) {
+//                            String type = switch (obj) {
+//                                case String s -> "String";   //直接在case后写上类型和变量名称即可进行类型匹配
+//                                case Integer i -> "Integer";
+//                                case null -> "Null";   //甚至还可以直接判断null
+//                                default -> "Other";
+//                            };
+//                            System.out.println(type);
+//                        }
+//
+//                        return switch (score) {
+//                                case Integer c when c >= 90 -> "优秀";   //注意switch是从上往下匹配，大于90要放前面优先匹配
+//                                case Integer c when c >= 80 -> "良好";   //走到这里一定小于90，再判断是否大于80
+//                                case Integer c when c >= 60 -> "及格";
+//                        default -> "滚蛋";
+//                                };
+//
+//                        record Point(int x, int y) {}
+//
+//                        public static Integer test(Object object) {
+//                            return switch (object) {
+//                                case Point(int x, int y) -> x + y;  //直接解构其参数使用
+//                                case String _ -> 10;
+//                                default -> 5;
+//                            };
+//                        }
+//
+//                        成员内部类
+//                        public class Test {
+//                            public class Inner {   //内部类也是类，所以说里面也可以有成员变量、方法等，甚至还可以继续套娃一个成员内部类
+//                                public void test(){
+//                                    System.out.println("我是成员内部类！");
+//                                }
+//                            }
+//                        }
+//
+//                        public class Inner {
+//
+//                            String name;
+//                            public void test(String name){
+//                                this.toString();		//内部类自己的toString方法
+//                                super.toString();    //内部类父类的toString方法
+//                                Test.this.toString();   //外部类的toSrting方法
+//                                Test.super.toString();  //外部类父类的toString方法
+//                            }
+//                        }
+//
+//                        静态内部类
+//                        public static class Inner {
+//
+//                            String name;
+//                            public void test(){
+//                                System.out.println("我是静态内部类："+name);
+//                            }
+//                        }
+//
+//                        局部内部类
+//                        public class Test {
+//                            private final String name;
+//
+//                            public Test(String name){
+//                                this.name = name;
+//                            }
+//
+//                            public void hello(){
+//                                class Inner {    //直接在方法中创建局部内部类
+//
+//                                }
+//                            }
+//                        }
+//
+//                        匿名
+//                        Student student = new Student() {
+//                            int a;   //因为本质上就相当于是子类，所以说子类定义一些子类的属性完全没问题
+//
+//                            @Override
+//                            public void test() {
+//                                System.out.println(name + "我是匿名内部类的实现!");   //直接使用父类中的name变量
+//                            }
+//                        };
+//
+//                        Lambda表达式
+//                        public static void main(String[] args) {
+//                            Study study = () -> System.out.println("我是学习方法！");   //是不是感觉非常简洁！
+//                            study.study();
+//                        }
+//
+//                        断言表达式
+//                        public static void main(String[] args) {
+//                            int a = 10;
+//                            assert a > 10;
+//                        }
+//
+//                        三角函数
+//                        Math.sin(Math.PI / 2);     //求π/2的正弦值，这里我们可以使用预置的PI进行计算
+//                        Math.cos(Math.PI);       //求π的余弦值
+//                        Math.tan(Math.PI / 4);    //求π/4的正切值
+//
+//                        Math.asin(1);     //三角函数的反函数也是有的，这里是求arcsin1的值
+//                        Math.acos(1);
+//                        Math.atan(0);
+//
+//                        计算对数函数
+//                        public static void main(String[] args) {
+//                            Math.log(Math.E);    //e为底的对数函数，其实就是ln，我们可以直接使用Math中定义好的e
+//                            Math.log10(100);     //10为底的对数函数
+//                            //利用换底公式，我们可以弄出来任何我们想求的对数函数
+//                            double a = Math.log(4) / Math.log(2);   //这里是求以2为底4的对数，log(2)4 = ln4 / ln2
+//                            System.out.println(a);
+//                        }
+//                        将数组进行排序
+//                        public static void main(String[] args) {
+//                            int[] arr = new int[]{1, 4, 5, 8, 2, 0, 9, 7, 3, 6};
+//                            Arrays.sort(arr);    //可以对数组进行排序，将所有的元素按照从小到大的顺序排放
+//                            System.out.println(Arrays.toString(arr));
+//                        }
+
 //}
 //}
