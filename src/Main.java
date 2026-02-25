@@ -198,7 +198,293 @@
 //                //这里创建出来的，就是一个具体的人了
 //            }
 
+          //对象的使用
+
+//            public static void main(String[] args) {
+//                //这里的a存放的是具体的某个值
+//                int a = 10;
+//                //创建一个变量指代我们刚刚创建好的对象，变量的类型就是对应的类名
+//                //这里的p存放的是对象的引用，而不是本体，我们可以通过对象的引用来间接操作对象
+//                Person p = new Person();
+//            }
 
 
+
+//                public static void main(String[] args) {
+//                    Person p1 = new Person();
+//                    Person p2 = p1;
+//                }
+
+
+//            public static void main(String[] args) {
+//                Person p1 = new Person();
+//                Person p2 = p1;
+//                System.out.println(p1 == p2);    //使用 == 可以判断两个变量引用的是不是同一个对象
+//            }
+
+//                public static void main(String[] args) {
+//                Person p1 = new Person();   //这两个变量分别引用的是不同的两个对象
+//                Person p2 = new Person();
+//                System.out.println(p1 == p2);   //如果两个变量存放的是不同对象的引用，那么肯定就是不一样的了
+//                }
+
+//                public static void main(String[] args) {
+//                    Person p1 = new Person();
+//                    Person p2 = new Person();
+//                    p1.name = "小明";   //这个修改的是第一个对象的属性
+//                    p2.name = "大明";   //这里修改的是第二个对象的属性
+//                    System.out.println(p1.name);  //这里我们获取的是第一个对象的属性
+//                }
+
+//                public static void main(String[] args) {
+//                    Person p = null;   //此时变量没有引用任何对象
+//                    p.name = "小红";   //我任性，就是要操作
+//                    System.out.println(p.name);
+//                }
+
+//                    public static void main(String[] args) {
+//                        Person p = new Person();
+//                        System.out.println("name = "+p.name);
+//                        System.out.println("age = "+p.age);
+//                        System.out.println("sex = "+p.sex);
+//                    }
+
+
+//                    public static void main(String[] args) {
+//                        Person p = new Person();
+//                        p.name = "小明";
+//                        p.age = 18;
+//                        p.hello();    //我们只需要使用 . 运算符，就可以执行定义好的方法了，只需要 .方法名称() 即可
+//                    }
+
+
+//                    int sum(int a, int b){
+//                        int c = a + b;
+//                        return c;   //return后面紧跟需要返回的结果，这样就可以将计算结果丢出去了
+//                        //带返回值的方法，是一定要有一个返回结果的！否则无法通过编译！
+//                    }
+//
+//
+//                    public static void main(String[] args) {
+//                        Person p = new Person();
+//                        p.name = "小明";
+//                        p.age = 18;
+//                        int result = p.sum(10, 20);    //现在我们要让这个对象帮我们计算10 + 20的结果
+//                        System.out.println(result);    //成功得到30，实际上这里的println也是在调用方法进行打印操作
+//                    }
+//
+//
+//                    void modify(Person person){
+//                        person.name = "lbwnb";   //修改对象的名称
+//                    }
+//
+//                    public static void main(String[] args) {
+//                        Person p = new Person();
+//                        p.name = "小明";     //先在外面修改一次
+//                        p.modify(p);        //调用方法再修改一次
+//                        System.out.println(p.name);    //最后name会是lbwnb
+//                    }
+//
+//                           //用类型的变量，仅仅存放的是对象的引用，而不是对象本身
+//
+//
+//                    public static void main(String[] args) {
+//                        Person p = new Person();
+//                        //当方法出现多个重载的情况，在调用时会自动进行匹配，选择合适的方法进行调用
+//                        System.out.println(p.sum(1.5, 2.2));
+//                    }
+//
+//                    //静态变量和静态方法
+//
+//                    public static void main(String[] args) {
+//                        Person p1 = new Person();
+//                        Person p2 = new Person();
+//                        p1.info = "你";
+//                        System.out.println(p2.info);   //可以看到，由于静态属性是属于类的，因此无论通过什么方式改变，都改变的是同一个目标
+//                    }
+//
+//                    static void test(){
+//                        System.out.println("我是静态方法");
+//                    }
+//
+//                    static String info;
+//
+//                    static void test(){
+//                        System.out.println("静态变量的值为："+info);
+//                    }
+//
+//                    static String info;
+//
+//                    static {   //静态代码块可以用于初始化静态变量
+//                        info = "测试";
+//                    }
+//
+//                    public class Person {
+//                        String name = test();  //这里我们用test方法的返回值作为变量的初始值，便于观察
+//                        int age;
+//                        String sex;
+//
+//                        {
+//                            System.out.println("我是普通代码块");
+//                        }
+//
+//                        Person(){
+//                            System.out.println("我是构造方法");
+//                        }
+//
+//                        String test(){
+//                            System.out.println("我是成员变量初始化");
+//                            return "小明";
+//                        }
+//
+//                        static String info = init();   //这里我们用init静态方法的返回值作为变量的初始值，便于观察
+//
+//                        static {
+//                            System.out.println("我是静态代码块");
+//                        }
+//
+//                        static String init(){
+//                            System.out.println("我是静态变量初始化");
+//                            return "test";
+//                        }
+//                    }
+//
+//                    访问权限控制
+//                    private - 私有，标记为私有的内容无法被除当前类以外的任何位置访问。
+//                    什么都不写 - 默认，默认情况下，只能被类本身和同包中的其他类访问。
+//                    protected - 受保护，标记为受保护的内容可以能被类本身和同包中的其他类访问，也可以被子类访问（子类我们会在下一章介绍）
+//                    public - 公共，标记为公共的内容，允许在任何地方被访问。
+//
+//                    类的封装
+//                    public class Person {
+//                        private String name;    //现在类的属性只能被自己直接访问
+//                        private int age;
+//                        private String sex;
+//
+//                        public Person(String name, int age, String sex) {   //构造方法也要声明为公共，否则对象都构造不了
+//                            this.name = name;
+//                            this.age = age;
+//                            this.sex = sex;
+//                        }
+//
+//                        public String getName() {
+//                            return name;    //想要知道这个对象的名字，必须通过getName()方法来获取，并且得到的只是名字值，外部无法修改
+//                        }
+//
+//                        public String getSex() {
+//                            return sex;
+//                        }
+//
+//                        public int getAge() {
+//                            return age;
+//                        }
+//                    }
+//
+//                    public class Person {
+//                        private String name;
+//                        private int age;
+//                        private String sex;
+//
+//                        private Person(){}   //不允许外部使用new关键字创建对象
+//
+//                        public static Person getInstance() {   //而是需要使用我们的独特方法来生成对象并返回
+//                            return new Person();
+//                        }
+//                    }
+//                    封装思想其实就是把实现细节给隐藏了，外部只需知道这个方法是什么作用，而无需关心实现，要用什么由类自己来做，不需要外面来操作类内部的东西去完成，封装就是通过访问权限控制来实现的。
+//
+//                    类的继承
+//                    在定义其他子类时可以继承自该父类，减少代码的重复定义，子类可以使用父类中非私有的成员。
+//
+//                    public class Worker extends Person{    //工人类
+//
+//                    }
+//
+//                    public class Student extends Person{
+//                        public void study(){
+//                            System.out.println("我的名字是 "+name+"，我在学习！");   //可以直接访问父类中定义的name属性
+//                        }
+//                    }
+//
+//                    public class Person {
+//                        String name;
+//                        int age;
+//                        String sex;
+//
+//                        public void hello(){
+//                            System.out.println("我叫 "+name+"，今年 "+age+" 岁了!");
+//                        }
+//                    }
+//
+//                    public static void main(String[] args) {
+//                        Student student = new Student();
+//                        student.study();    //子类不仅有自己的独特技能
+//                        student.hello();    //还继承了父类的全部技能
+//                    }
+//
+//                    枚举类
+//
+//                    public class Student extends Person implements Study {
+//
+//                        private String status;   //状态，可以是跑步、学习、睡觉这三个之中的其中一种
+//
+//                        public String getStatus() {
+//                            return status;
+//                        }
+//
+//                        public void setStatus(String status) {
+//                            this.status = status;
+//                        }
+//                    }
+//
+//                    public enum Status {   //enum表示这是一个枚举类，枚举类的语法稍微有一些不一样
+//                        RUNNING, STUDY, SLEEP;    //直接写每个状态的名字即可，最后面分号可以不打，但是推荐打上
+//                    }
+//
+//                    public enum Status {
+//                        RUNNING("睡觉"), STUDY("学习"), SLEEP("睡觉");   //无参构造方法被覆盖，创建枚举需要添加参数（本质就是调用的构造方法）
+//
+//                        private final String name;    //枚举的成员变量
+//                        Status(String name){    //覆盖原有构造方法（默认private，只能内部使用！）
+//                            this.name = name;
+//                        }
+//
+//                        public String getName() {   //获取封装的成员变量
+//                            return name;
+//                        }
+//                    }
+//
+//                    密封类的作用就是限制类的继承
+//
+//                    public final class A{   //添加final关键字后，不允许对此类继承
+//
+//                    }
+//
+//                    public sealed class A permits B{
+//                    //在class关键字前添加sealed关键字，表示此类为密封类型，permits后面跟上允许继承的类型，多个子类使用逗号隔开
+//
+//                    }
+//
+//                    public [final/sealed/non-sealed] class 子类 extends 父类 {   //必须继承自父类
+//                        //final类型：任何类不能再继承当前类，到此为止，已经封死了。
+//                        //sealed类型：同父类，需要指定由哪些类继承。
+//                        //non-sealed类型：重新开放为普通类，任何类都可以继承。
+//                    }
+//
+//
+//                    public sealed class A  permits B{   //指定B继承A
+//
+//                    }
+//
+//                    public final class B extends A {   //在子类final，彻底封死
+//
+//                    }
+//
+//                    将B设定为non-sealed类型：
+//                    public non-sealed class B extends A {
+//
+//                    }
+//
+//                    可以正常继承了，因为B指定了non-sealed主动放弃了密封特性
 //}
 //}
